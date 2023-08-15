@@ -1,4 +1,5 @@
 from src.item import Item
+from src.phone import Phone
 import pytest
 
 
@@ -40,3 +41,21 @@ def test_string_to_number():
 def test_item(item_class):
     assert repr(item_class) == "Item('Смартфон', 12.5, 15)"
     assert str(item_class) == 'Смартфон'
+
+
+def test_add():
+    item1 = Item("Смартфон", 10000, 20)
+    phone1 = Phone("iPhone 14", 120_000, 5, 2)
+    assert item1 + phone1 == 25
+    assert phone1 + phone1 == 10
+
+
+def test_add_invalid():
+    item1 = Item("Смартфон", 10000, 20)
+
+    with pytest.raises(ValueError):
+        item1 + 1000
+
+
+
+
