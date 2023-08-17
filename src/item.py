@@ -64,7 +64,7 @@ class Item:
     @classmethod
     def instantiate_from_csv(cls):
         item_list = []
-        with open('../src/items.csv', newline='', encoding='cp1251') as csvfile:
+        with open('./src/items.csv', newline='', encoding='cp1251') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 name = row['name']
