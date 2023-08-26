@@ -1,4 +1,4 @@
-from src.item import Item
+from src.item import Item, InstantiateCSVError
 from src.phone import Phone
 import pytest
 
@@ -57,5 +57,11 @@ def test_add_invalid():
         item1 + 1000
 
 
+def test_instantiate_from_csv_error():
+    with pytest.raises(FileNotFoundError):
+        Item.instantiate_from_csv()
 
 
+def test_instantiate_from_csv_damaged():
+    with pytest.raises(InstantiateCSVError):
+        Item.instantiate_from_csv()
